@@ -33,12 +33,25 @@ export const loader: LoaderFunction = async ({ request }) => {
   return json<LoaderData>({});
 };
 
-function NavButton({ link, title }: { link: string; title: string }) {
-  return (
-    <Link
-      to={link}
-      className="md:text-md mx-2 rounded bg-gray-200 p-2 text-xs text-gray-600 transition-colors duration-300 hover:text-gray-900 lg:px-4"
-    >
+function NavButton({
+  link,
+  title,
+  external,
+}: {
+  link: string;
+  title: string;
+  external?: boolean;
+}) {
+  const props = {
+    className:
+      "md:text-md mx-2 rounded bg-gray-200 p-2 text-xs text-gray-600 transition-colors duration-300 hover:text-gray-900 lg:px-4",
+  };
+  return external ? (
+    <a href={link} {...props} target="_blank" rel="noreferrer">
+      {title}
+    </a>
+  ) : (
+    <Link to={link} {...props}>
       {title}
     </Link>
   );
@@ -66,6 +79,11 @@ export default function App() {
                   <NavButton title="Soccer" link="/soccer" />
                   <NavButton title="Board Games" link="/newsletter" />
                   <NavButton title="Sci-Fi Podcast" link="/podcasts" />
+                  <NavButton
+                    title="GitHub"
+                    external
+                    link="https://github.com/mattmontgomery"
+                  />
                 </div>
               </div>
             </div>
