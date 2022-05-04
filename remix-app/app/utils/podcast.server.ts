@@ -1,4 +1,5 @@
-import parse, { Podcast } from "podparse";
+import parse from "podparse";
+import type { Podcast } from "podparse";
 
 export async function getPodcastFeed(feed: string): Promise<Podcast> {
   const data = await fetch(feed);
