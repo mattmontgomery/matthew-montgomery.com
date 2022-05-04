@@ -1,5 +1,3 @@
-import Image from "remix-image";
-
 export function LeadImage({
   image,
   title,
@@ -22,23 +20,10 @@ export function LeadImage({
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
           <div className="absolute inset-0">
-            <Image
-              loaderUrl="/api/image"
-              className={`h-full w-full object-cover ${imageFilter}`}
+            <img
+              className={`h-full w-full object-cover ${imageFilter} blur-sm`}
               src={image.url}
               alt={image.alt}
-              options={{
-                blurRadius: 12,
-              }}
-              responsive={[
-                {
-                  size: {
-                    width: 1200,
-                    height: 1200,
-                  },
-                  maxWidth: 1600,
-                },
-              ]}
             />
             <div
               className={`absolute inset-0  mix-blend-multiply ${backgroundFilter}`}

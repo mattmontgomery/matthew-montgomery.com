@@ -2,22 +2,8 @@ var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    }
-  return a;
-};
 var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
 var __export = (target, all) => {
   for (var name in all)
@@ -85,7 +71,7 @@ var import_node = require("@remix-run/node");
 var import_react3 = require("@remix-run/react");
 
 // app/styles/tailwind.css
-var tailwind_default = "/build/_assets/tailwind-J4OWHPUG.css";
+var tailwind_default = "/build/_assets/tailwind-DQOAIVZX.css";
 
 // route:/Users/mmontgomery/dev/personal/matthew-montgomery.com/remix-app/app/root.tsx
 var links = () => {
@@ -257,7 +243,6 @@ function Page({
 }
 
 // app/components/LeadImage.tsx
-var import_remix_image = __toESM(require("remix-image"));
 function LeadImage({
   image,
   title,
@@ -275,23 +260,10 @@ function LeadImage({
     className: "relative shadow-xl sm:overflow-hidden sm:rounded-2xl"
   }, /* @__PURE__ */ React.createElement("div", {
     className: "absolute inset-0"
-  }, /* @__PURE__ */ React.createElement(import_remix_image.default, {
-    loaderUrl: "/api/image",
-    className: `h-full w-full object-cover ${imageFilter}`,
+  }, /* @__PURE__ */ React.createElement("img", {
+    className: `h-full w-full object-cover ${imageFilter} blur-sm`,
     src: image.url,
-    alt: image.alt,
-    options: {
-      blurRadius: 12
-    },
-    responsive: [
-      {
-        size: {
-          width: 1200,
-          height: 1200
-        },
-        maxWidth: 1600
-      }
-    ]
+    alt: image.alt
   }), /* @__PURE__ */ React.createElement("div", {
     className: `absolute inset-0  mix-blend-multiply ${backgroundFilter}`
   })), /* @__PURE__ */ React.createElement("div", {
@@ -376,76 +348,6 @@ function Newsletter() {
   }));
 }
 
-// route:/Users/mmontgomery/dev/personal/matthew-montgomery.com/remix-app/app/routes/api/image.tsx
-var image_exports = {};
-__export(image_exports, {
-  loader: () => loader4
-});
-var import_server2 = require("remix-image/server");
-
-// app/utils/sharp-transformer.ts
-var import_remix_image2 = require("remix-image");
-var import_sharp = __toESM(require("sharp"));
-var supportedInputs = /* @__PURE__ */ new Set([
-  import_remix_image2.MimeType.JPEG,
-  import_remix_image2.MimeType.PNG,
-  import_remix_image2.MimeType.WEBP,
-  import_remix_image2.MimeType.TIFF
-]);
-var supportedOutputs = /* @__PURE__ */ new Set([import_remix_image2.MimeType.JPEG, import_remix_image2.MimeType.PNG, import_remix_image2.MimeType.WEBP]);
-var sharpTransformer = {
-  name: "sharpTransformer",
-  supportedInputs,
-  supportedOutputs,
-  transform: async ({ data }, {
-    contentType: outputContentType,
-    width,
-    height,
-    fit,
-    position,
-    background,
-    quality,
-    compressionLevel,
-    blurRadius
-  }) => {
-    const image = (0, import_sharp.default)(data);
-    image.resize(width, height, __spreadValues({
-      fit,
-      position
-    }, background && {
-      background: {
-        r: background[0],
-        g: background[1],
-        b: background[2],
-        alpha: background[3]
-      }
-    })).blur(blurRadius || false).jpeg({
-      quality,
-      progressive: true,
-      force: outputContentType === import_remix_image2.MimeType.JPEG
-    }).png({
-      progressive: true,
-      compressionLevel,
-      force: outputContentType === import_remix_image2.MimeType.PNG
-    }).webp({
-      quality,
-      force: outputContentType === import_remix_image2.MimeType.WEBP
-    }).tiff({
-      quality,
-      force: false
-    });
-    return image.toBuffer();
-  }
-};
-
-// route:/Users/mmontgomery/dev/personal/matthew-montgomery.com/remix-app/app/routes/api/image.tsx
-var loader4 = ({ request }) => {
-  return (0, import_server2.imageLoader)({
-    selfUrl: "http://localhost:3000",
-    transformer: sharpTransformer
-  }, request);
-};
-
 // route:/Users/mmontgomery/dev/personal/matthew-montgomery.com/remix-app/app/routes/podcasts.tsx
 var podcasts_exports = {};
 __export(podcasts_exports, {
@@ -453,7 +355,7 @@ __export(podcasts_exports, {
   ErrorBoundary: () => ErrorBoundary2,
   default: () => Newsletter2,
   headers: () => headers2,
-  loader: () => loader5,
+  loader: () => loader4,
   meta: () => meta3
 });
 var import_react8 = require("@remix-run/react");
@@ -471,7 +373,7 @@ async function getPodcastFeed(feed) {
 var flowers_default = "/build/_assets/flowers-RWKE6JTP.jpg";
 
 // route:/Users/mmontgomery/dev/personal/matthew-montgomery.com/remix-app/app/routes/podcasts.tsx
-var loader5 = async () => {
+var loader4 = async () => {
   const feed = `https://anchor.fm/s/5a53fca0/podcast/rss`;
   const cacheKey = `feed:v2:${feed}`;
   try {
@@ -617,7 +519,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "5afeac3c", "entry": { "module": "/build/entry.client-WPGTW2TH.js", "imports": ["/build/_shared/chunk-KO3VKK4A.js", "/build/_shared/chunk-XV23MX66.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-KC5SVSCH.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": true, "hasErrorBoundary": true }, "routes/api/image": { "id": "routes/api/image", "parentId": "root", "path": "api/image", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/api/image-HBM4IKHE.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/healthcheck": { "id": "routes/healthcheck", "parentId": "root", "path": "healthcheck", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/healthcheck-LBG435VQ.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-QALUZQ5B.js", "imports": ["/build/_shared/chunk-H6BHAERW.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/newsletter": { "id": "routes/newsletter", "parentId": "root", "path": "newsletter", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/newsletter-2YAIMCIV.js", "imports": ["/build/_shared/chunk-EPCBYKZH.js", "/build/_shared/chunk-H6BHAERW.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/podcasts": { "id": "routes/podcasts", "parentId": "root", "path": "podcasts", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/podcasts-YDWMSWI5.js", "imports": ["/build/_shared/chunk-EPCBYKZH.js", "/build/_shared/chunk-H6BHAERW.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": true, "hasErrorBoundary": true }, "routes/soccer": { "id": "routes/soccer", "parentId": "root", "path": "soccer", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/soccer-ZY264FNB.js", "imports": ["/build/_shared/chunk-H6BHAERW.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-5AFEAC3C.js" };
+var assets_manifest_default = { "version": "feaacdfa", "entry": { "module": "/build/entry.client-WPGTW2TH.js", "imports": ["/build/_shared/chunk-KO3VKK4A.js", "/build/_shared/chunk-XV23MX66.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-PL2Y4BJY.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": true, "hasErrorBoundary": true }, "routes/healthcheck": { "id": "routes/healthcheck", "parentId": "root", "path": "healthcheck", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/healthcheck-LBG435VQ.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-2OI4EQP4.js", "imports": ["/build/_shared/chunk-RGKWG657.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/newsletter": { "id": "routes/newsletter", "parentId": "root", "path": "newsletter", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/newsletter-MTIY7D7Z.js", "imports": ["/build/_shared/chunk-EPCBYKZH.js", "/build/_shared/chunk-RGKWG657.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/podcasts": { "id": "routes/podcasts", "parentId": "root", "path": "podcasts", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/podcasts-H4PEVT7L.js", "imports": ["/build/_shared/chunk-EPCBYKZH.js", "/build/_shared/chunk-RGKWG657.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": true, "hasErrorBoundary": true }, "routes/soccer": { "id": "routes/soccer", "parentId": "root", "path": "soccer", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/soccer-RTVJ4KUZ.js", "imports": ["/build/_shared/chunk-RGKWG657.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-FEAACDFA.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };
@@ -645,14 +547,6 @@ var routes = {
     index: void 0,
     caseSensitive: void 0,
     module: newsletter_exports
-  },
-  "routes/api/image": {
-    id: "routes/api/image",
-    parentId: "root",
-    path: "api/image",
-    index: void 0,
-    caseSensitive: void 0,
-    module: image_exports
   },
   "routes/podcasts": {
     id: "routes/podcasts",
