@@ -442,7 +442,6 @@ var sharpTransformer = {
 var loader4 = ({ request }) => {
   return (0, import_server2.imageLoader)({
     selfUrl: "http://localhost:3000",
-    cache: new import_server2.DiskCache(),
     transformer: sharpTransformer
   }, request);
 };
