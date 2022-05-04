@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@remix-run/vercel": "^1.4.3",
-    "remix": "^1.4.3"
-  }
-}
