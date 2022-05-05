@@ -41,7 +41,6 @@
     "feed-reader": "^5.0.0",
     "ioredis": "^5.0.4",
     "lru-cache": "^7.9.0",
-    "podcast-feed-parser": "^1.0.4",
     "podparse": "^1.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
