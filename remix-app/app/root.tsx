@@ -18,7 +18,10 @@ import {
 
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
+  return [
+    { rel: "stylesheet", href: tailwindStylesheetUrl },
+    { rel: "icon", href: "/favicon-32x32.png" },
+  ];
 };
 
 export const meta: MetaFunction = () => ({
