@@ -1,6 +1,10 @@
 import Redis from "ioredis";
 
-const client = new Redis(process.env.REDIS_URL || "redis://localhost");
+if (!process.env.REDIS_URL) {
+  console.error("redis URL not set");
+  process.exit(1);
+}
+const client = new Redis(process.env.REDIS_URL);
 
 export async function fetchThenSet<T>({
   cacheKey,
@@ -18,12 +22,14 @@ export async function fetchThenSet<T>({
   stringifyFn?: (data: T) => string;
 }): Promise<T> {
   if (await client.exists(cacheKey)) {
+    console.info("cache:exists:false", cacheKey);
     const data = await client.get(cacheKey);
     if (data) {
       return parseFn(data);
     }
   }
   try {
+    console.info("cache:exists:false", cacheKey);
     const data = await fetchFn();
     await client.set(cacheKey, stringifyFn(data));
     await client.expire(cacheKey, expireTime);
