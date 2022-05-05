@@ -69,7 +69,7 @@ export default function App() {
       </head>
       <body className="bg-slate-50">
         <div className="relative max-h-screen min-h-screen grid-rows-layout gap-4">
-          <nav className="max-h-min min-w-[100vw] bg-white py-2 py-4 shadow-md">
+          <nav className="mb-4 max-h-min min-w-[100vw] bg-white py-2 py-4 shadow-md md:mb-0">
             <div className="mx-auto px-4">
               <div className="grid grid-cols-1 items-center justify-between md:grid-cols-8">
                 <Link

@@ -19,7 +19,7 @@ export function LeadImage({
     <div className="relative sm:pb-8 sm:pt-8">
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 overflow-hidden">
             <img
               className={`h-full w-full object-cover ${imageFilter} blur-sm`}
               src={image.url}
