@@ -40,7 +40,7 @@
     "date-fns": "^2.28.0",
     "feed-reader": "^5.0.0",
     "ioredis": "^5.0.4",
-    "lru-cache": "^7.9.0",
+    "lru-cache": "^7.10.1",
     "podparse": "^1.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
