@@ -48,7 +48,7 @@
     "remix-image": "^0.3.18",
     "sharp": "^0.30.5",
     "tiny-invariant": "^1.2.0",
-    "vercel": "^24.2.4"
+    "vercel": "^24.2.5"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.0.1",
