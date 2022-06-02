@@ -46,7 +46,7 @@
     "react-dom": "^17.0.2",
     "remix": "^1.5.1",
     "remix-image": "^0.3.18",
-    "sharp": "^0.30.5",
+    "sharp": "^0.30.6",
     "tiny-invariant": "^1.2.0",
     "vercel": "^24.2.4"
   },
