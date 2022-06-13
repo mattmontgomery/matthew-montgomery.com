@@ -72,7 +72,7 @@
     "c8": "^7.11.3",
     "cross-env": "^7.0.3",
     "cypress": "^9.7.0",
-    "eslint": "^8.16.0",
+    "eslint": "^8.17.0",
     "eslint-config-prettier": "^8.5.0",
     "happy-dom": "^5.0.0",
     "msw": "^0.42.0",
