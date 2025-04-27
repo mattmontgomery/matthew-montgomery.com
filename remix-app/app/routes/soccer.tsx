@@ -17,11 +17,11 @@ export default function Soccer() {
           image={{ alt: "Rio Tinto Stadium in daytime", url: photo }}
           title={
             <a
-              href="https://www.rslsoapbox.com"
+              href="https://wasatch.soccer"
               target="_blank"
               rel="noreferrer"
             >
-              RSL Soapbox
+              Wasatch Soccer Sentinel
             </a>
           }
           subtitle={
@@ -29,7 +29,7 @@ export default function Soccer() {
               <div>Managing Editor</div>
               <div>
                 <a
-                  href="https://www.rslsoapbox.com"
+                  href="https://wasatch.soccer"
                   target="_blank"
                   rel="noreferrer"
                   className="mt-4 rounded bg-emerald-500 px-6 py-3 text-lg font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:bg-emerald-600"
